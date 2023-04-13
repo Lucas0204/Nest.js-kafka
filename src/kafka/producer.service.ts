@@ -9,7 +9,7 @@ export class ProducerService implements OnModuleInit, OnApplicationShutdown {
 
     constructor(private readonly configService: ConfigService) {
         this.kafka = new Kafka({
-            brokers: [ configService.get('KAFKA_BROKER') ]
+            brokers: [ this.configService.get('KAFKA_BROKER') ]
         });
 
         this.producer = this.kafka.producer();
